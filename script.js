@@ -49,3 +49,5 @@ function playRound(humanChoice, computerChoice) {
 let humanScore = 0,
   computerScore = 0;
 playGame();
+
+sadfghfdsadfg;
