@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
     <script src="script.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 85vh;
+      }
+      button {
+        background-color: lightgoldenrodyellow;
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+        border-radius: 5px;
+        font-size: xx-large;
+        margin: 10px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="buttons">
+      <button onclick="playRound(`rock`, getComputerChoice())">🪨</button>
+      <button onclick="playRound(`paper`, getComputerChoice())">📄</button>
+      <button onclick="playRound(`scissors`, getComputerChoice())">✂️</button>
+    </div>
+    <h3>Press to play!</h3>
+    <p id="human">Human: 0</p>
+    <p id="computer">Computer: 0</p>
+  </body>
 </html>

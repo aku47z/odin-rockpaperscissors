@@ -6,46 +6,41 @@ function getComputerChoice() {
   return randomChoice;
 }
 
-function getHumanChoice() {
-  let humanChoice = prompt("What is your choice?\n(rock, paper, scissors)");
-  return humanChoice;
-}
-
-function playGame() {
-  for (i = 1; i <= 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
-  console.log(
-    "Your score: " + humanScore + "\tComputer score: " + computerScore
-  );
-  if (humanScore > computerScore) console.log("You won!");
-  else if (humanScore < computerScore) console.log("You lost!");
-  else console.log("It's a tie!");
-}
-
 function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice.toLowerCase();
+  const h3 = document.querySelector("h3");
+  const human = document.querySelector("#human");
+  const computer = document.querySelector("#computer");
   if (
     (humanChoice === "rock" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "rock")
   ) {
     computerScore++;
-    console.log(`You lose, ${computerChoice} beats ${humanChoice}.`);
+    h3.textContent = `You lose, ${computerChoice} beats ${humanChoice}.`;
+    computer.textContent = `Computer: ${computerScore}`;
   } else if (
     (computerChoice === "rock" && humanChoice === "paper") ||
     (computerChoice === "paper" && humanChoice === "scissors") ||
     (computerChoice === "scissors" && humanChoice === "rock")
   ) {
     humanScore++;
-    console.log(`You win, ${humanChoice} beats ${computerChoice}.`);
+    h3.textContent = `You win, ${humanChoice} beats ${computerChoice}.`;
+    human.textContent = `Human: ${humanScore}`;
   } else {
-    console.log("It's a tie.");
+    h3.textContent = `It's a tie.`;
+  }
+  if (humanScore === 5 || computerScore === 5) {
+    const body = document.querySelector("body");
+    const btn = document.createElement("button");
+    btn.textContent = "fin.";
+    const h2 = document.createElement("h2");
+    h2.textContent = humanScore === 5 ? "You won." : "You lost.";
+    body.appendChild(h2);
+    body.insertBefore(btn, h3);
+    const buttons = document.querySelector(".buttons");
+    body.removeChild(buttons);
   }
 }
 
 let humanScore = 0,
   computerScore = 0;
-playGame();
