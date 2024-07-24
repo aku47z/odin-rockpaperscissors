@@ -1,1 +1,1 @@
-A simple rock paper scissors game that works in console - assigned by the odin projecct.
+Simple rock paper scissors project from the odin project foundations course.
